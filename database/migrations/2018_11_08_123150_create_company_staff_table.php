@@ -19,6 +19,8 @@ class CreateCompanyStaffTable extends Migration {
 			$table->boolean('is_active');
 			$table->string('employee_company_nr', 45)->nullable()->unique('employee_company_nr_UNIQUE');
 			$table->primary(['company_id','staff_id']);
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

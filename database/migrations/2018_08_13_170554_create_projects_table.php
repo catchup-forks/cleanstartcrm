@@ -14,13 +14,15 @@ class CreateProjectsTable extends Migration {
 	{
 		Schema::create('projects', function(Blueprint $table)
 		{
-			$table->integer('id')->unsigned();
+			$table->increments('id');
 			$table->integer('company_id')->unsigned()->index('fk_projects_company_idx');
+			$table->integer('customer_id')->unsigned();
 			$table->string('name', 45)->unique('name_UNIQUE');
 			$table->string('slug', 45)->unique('slug_UNIQUE');
 			$table->date('start_date')->nullable();
 			$table->date('due_date')->nullable();
-			$table->primary(['id','company_id']);
+			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

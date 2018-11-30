@@ -11,7 +11,7 @@ class CreateSlaPlansTable extends Migration {
 			$table->increments('id');
 			$table->string('title', 100)->index();
 			$table->string('slug', 100)->index();
-			$table->tinyInteger('isenabled')->unsigned()->index();
+			$table->tinyInteger('is_enabled')->unsigned()->index();
 			$table->timestamps();
 			$table->softDeletes();
 		});
